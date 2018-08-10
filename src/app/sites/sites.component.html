@@ -1,7 +1,7 @@
 <button (click)="globalServise.modal = {create:'site'}">Create</button>
 
 <div *ngFor="let site of sites; let id = index;">
-  <a routerLink="/pages/{{site.id}}">{{site.name}}</a>
+  <a routerLink="/shablons/{{site.id}}">{{site.name}}</a>
 </div>
 
 <app-modal *ngIf="globalServise.modal"></app-modal>
