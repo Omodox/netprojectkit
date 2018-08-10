@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+.navbar {
+    display: block;
+}
+.container {
+    display: inline-block;
+    margin: 20px auto;
+    text-align: center;
+    width: 100%;
+
+}
+
+.fex_table {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1 100%;
+}
+
+.div {
+    padding: 8px;
+    border: 1px solid #777;
+    width: 100%;
+    background: #fff;
+ 
+}
+
+body {
+    background: #eee;
+}

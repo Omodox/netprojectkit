@@ -1,0 +1,8 @@
+<div class="login_box">
+  <h2>Netkit</h2>
+  <form (ngSubmit)="login(loginForm); " #loginForm="ngForm">
+    <input type="text" placeholder="Email" name="email" [ngModel]="email">
+    <input type="password" placeholder="password" name="password" [ngModel]="password">
+    <input type="submit">
+  </form>
+</div>

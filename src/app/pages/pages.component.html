@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="fex_table">
+    <div class="div">Id</div>
+    <div class="div">Name</div>
+    <div class="div">Shablon</div>
+    <div class="div">URL</div>
+    <div class="div">Date</div>
+    <div class="div">Avtor</div>
+    <div class="div">Status</div>
+  </div>
+    <div *ngFor="let page of pages; let id = index;" class="fex_table">
+        <div class="div">{{page.id}}</div>
+        <div class="div">{{page.name}}</div>
+        <div class="div"><a routerLink="/shablon/{{page.shablon}}">{{page.shablonName.name}}</a></div>
+        <div class="div"><a href="{{page.url}}">Ссылка</a></div>
+        <div class="div">{{page.date}}</div>
+        <div class="div">{{page.avt}}</div>
+        <div class="div">{{page.sts}}</div>
+      </div>
+</div>
