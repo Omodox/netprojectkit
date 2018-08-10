@@ -1,5 +1,8 @@
 <app-navbar></app-navbar>
 
+<hr>
+<a routerLink="/shablons/{{siteId}}">Шаблоны Сайта</a>
+
 <div class="container">
   <div class="fex_table">
     <div class="div">Id</div>
@@ -12,7 +15,7 @@
   </div>
     <div *ngFor="let page of pages; let id = index;" class="fex_table">
         <div class="div">{{page.id}}</div>
-        <div class="div">{{page.name}}</div>
+        <div class="div"><a routerLink="/page/{{page.id}}">{{page.name}}</a></div>
         <div class="div"><a routerLink="/shablon/{{page.shablon}}">{{page.shablonName.name}}</a></div>
         <div class="div"><a href="{{page.url}}">Ссылка</a></div>
         <div class="div">{{page.date}}</div>
@@ -20,3 +23,5 @@
         <div class="div">{{page.sts}}</div>
       </div>
 </div>
+
+<img style="display: inline-block; margin: auto;" *ngIf="!pages" src="http://gifimage.net/wp-content/uploads/2017/09/animated-loading-gif-transparent-background-6.gif" alt="">

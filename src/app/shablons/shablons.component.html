@@ -1,3 +1,19 @@
-<p>
-  shablons works!
-</p>
+<div class="container">
+    <div class="fex_table">
+      <div class="div">Id</div>
+      <div class="div">Name</div>
+      <div class="div">Filds</div>
+      <div class="div">Actions</div>
+    </div>
+      <div *ngFor="let shablon of shablons; let id = index;" class="fex_table">
+          <div class="div">{{shablon.id}}</div>
+          <div class="div"><a routerLink="/shablon/{{shablon.id}}">{{shablon.name}}</a></div>
+          <div class="div">
+              <div *ngFor="let fild of shablon.filds;">
+                  {{fild.name}}
+              </div>
+          </div>
+          <div class="div"><button>Edit</button></div>
+        </div>
+  </div>
+  

@@ -21,6 +21,16 @@ export class AllHttpService {
        return this.http.get(`${this.server}?set=shablon&id=${id}`);
   }
 
+  getShablons(id) {
+       return this.http.get(`${this.server}?set=shablons&id=${id}`);
+  }
+
+  createSite(body) {
+       return this.http.post(`${this.server}?set=site&action=create`, body);
+  }
+
+
+
 
 
   getSites() {

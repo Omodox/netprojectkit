@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllHttpService } from '../all-http.service';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'app-sites',
@@ -11,7 +12,8 @@ export class SitesComponent implements OnInit {
   sites;
 
   constructor(
-    private allHttpServise: AllHttpService
+    private allHttpServise: AllHttpService,
+    public globalServise: GlobalService
   ) { }
 
   ngOnInit() {

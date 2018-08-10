@@ -1,0 +1,17 @@
+<div class="modal">
+  
+    <h1>{{globalServise.modal?.create}}</h1>
+    <form (ngSubmit)="send(modalForm); " #modalForm="ngForm">
+      <div class="modal_input" *ngFor="let fild of filds">
+          <input type="text" placeholder="{{fild.name}}" name="{{fild.name}}" [ngModel]="">
+      </div>
+     
+
+      <input type="submit">
+    </form>
+
+  <div class="modal_footer">
+      <button (click)="globalServise.modal = false">Close</button>
+  </div>
+</div>
+<div class="shadow"></div>

@@ -18,6 +18,9 @@ import { AllHttpService } from './all-http.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ShablonComponent } from './shablon/shablon.component';
 import { ShablonsComponent } from './shablons/shablons.component';
+import { ModalComponent } from './modal/modal.component';
+import { GlobalService } from './global.service';
+import { PageComponent } from './page/page.component';
 
 
 
@@ -29,7 +32,9 @@ import { ShablonsComponent } from './shablons/shablons.component';
     SitesComponent,
     NavbarComponent,
     ShablonComponent,
-    ShablonsComponent
+    ShablonsComponent,
+    ModalComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,7 @@ import { ShablonsComponent } from './shablons/shablons.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [HttpLoginService, AllHttpService],
+  providers: [HttpLoginService, AllHttpService, GlobalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
