@@ -1,5 +1,6 @@
 
 <a routerLink="/pages/{{siteId}}">Все страицы Сайта</a>
+<button (click)="globalServise.modal = {create:'shablon', site: siteId}">Создать шаблон</button>
 <hr>
 <div class="container">
     <div class="fex_table">
@@ -16,7 +17,10 @@
                   {{fild.name}}
               </div>
           </div>
-          <div class="div"><button>Edit</button></div>
+          <div class="div">
+            <button (click)="globalServise.modal = {create:'fild', shablon: shablon.id}">Создать Поле</button>
+          </div>
         </div>
   </div>
+  <app-modal *ngIf="globalServise.modal"></app-modal>
   

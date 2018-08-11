@@ -29,6 +29,15 @@ export class AllHttpService {
        return this.http.post(`${this.server}?set=site&action=create`, body);
   }
 
+  createShablon(body) {
+       return this.http.post(`${this.server}?set=shablon&action=create`, body);
+  }
+
+  createFild(body) {
+       return this.http.post(`${this.server}?set=fild&action=create`, body);
+  }
+
+
 
 
 

@@ -17,15 +17,24 @@ export class ModalComponent implements OnInit {
   ) { }
 
   send(modalForm) {
-    console.log(modalForm.value);
+    console.log('firt step : ', modalForm.value, 'Create command: ', this.globalServise.modal.create);
     if (this.globalServise.modal.create) {
-
       switch (this.globalServise.modal.create) {
 
         case 'site': {
           console.log('send params on create new site');
           this.allHttpServise.createSite(modalForm.value).subscribe(res => {
             console.log(res);
+          });
+        } break;
+        case 'shablon': {
+          this.allHttpServise.createShablon(modalForm.value).subscribe(res => {
+            console.log('create shablon: ', res);
+          });
+        } break;
+        case 'fild': {
+          this.allHttpServise.createFild(modalForm.value).subscribe(res => {
+            console.log('create fild: ', res);
           });
         } break;
 
@@ -42,8 +51,25 @@ export class ModalComponent implements OnInit {
 
     if (this.globalServise.modal.create === 'site') {
       this.filds = [
-        { name: 'name' },
+        { name: 'name'},
         { name: 'url' }
+      ];
+    }
+
+    if (this.globalServise.modal.create === 'shablon') {
+      this.filds = [
+        { name: 'site',  value: this.globalServise.modal.site, fixed: true},
+        { name: 'name' }
+      ];
+    }
+
+    if (this.globalServise.modal.create === 'fild') {
+      this.filds = [
+        { name: 'shablon',  value: this.globalServise.modal.shablon, fixed: true},
+        { name: 'name' },
+        { name: 'type',  value: 'string' },
+        { name: 'placeholder' },
+        { name: 'parent',  value: 0, }
       ];
     }
 

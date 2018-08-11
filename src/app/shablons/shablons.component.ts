@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AllHttpService } from '../all-http.service';
 import { ActivatedRoute } from '@angular/router';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'app-shablons',
@@ -14,7 +15,8 @@ export class ShablonsComponent implements OnInit {
 
   constructor(
     private allHttpServise: AllHttpService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    public globalServise: GlobalService
   ) { }
 
   ngOnInit() {
