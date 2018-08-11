@@ -38,6 +38,12 @@ export class ModalComponent implements OnInit {
           });
         } break;
 
+        case 'page': {
+          this.allHttpServise.createPage(modalForm.value).subscribe(res => {
+            console.log('create page: ', res);
+          });
+        } break;
+
       }
     }
 
@@ -51,26 +57,44 @@ export class ModalComponent implements OnInit {
 
     if (this.globalServise.modal.create === 'site') {
       this.filds = [
-        { name: 'name'},
+        { name: 'name' },
         { name: 'url' }
       ];
     }
 
     if (this.globalServise.modal.create === 'shablon') {
       this.filds = [
-        { name: 'site',  value: this.globalServise.modal.site, fixed: true},
+        { name: 'site', value: this.globalServise.modal.site, fixed: true },
         { name: 'name' }
       ];
     }
 
     if (this.globalServise.modal.create === 'fild') {
       this.filds = [
-        { name: 'shablon',  value: this.globalServise.modal.shablon, fixed: true},
-        { name: 'name' },
-        { name: 'type',  value: 'string' },
+        { name: 'shablon', value: this.globalServise.modal.shablon, fixed: true },
+        { name: 'name',  },
+        { name: 'type', value: 'string' },
         { name: 'placeholder' },
-        { name: 'parent',  value: 0, }
+        { name: 'parent', value: 0, }
       ];
+    }
+
+    if (this.globalServise.modal.create === 'page') {
+      this.filds = [
+        { name: 'shablon', value: this.globalServise.modal.shablon, fixed: true },
+        { name: 'name' },
+        { name: 'url' },
+        { name: 'parent', value: 0, }
+      ];
+      this.allHttpServise.getFilds(this.globalServise.modal.shablon).subscribe(res => {
+        let newFilds;
+        newFilds = res;
+        newFilds.forEach(element => {
+          // console.log(element);
+          this.filds.push({name : element.name, fildId : element.id , value: element.placeholder});
+        });
+        console.log(this.filds);
+      });
     }
 
 

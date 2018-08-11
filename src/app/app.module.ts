@@ -11,7 +11,7 @@ import { PagesComponent } from './pages/pages.component';
 import { SitesComponent } from './sites/sites.component';
 
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HttpLoginService } from './login/http-login.service';
 import { AllHttpService } from './all-http.service';
@@ -21,8 +21,7 @@ import { ShablonsComponent } from './shablons/shablons.component';
 import { ModalComponent } from './modal/modal.component';
 import { GlobalService } from './global.service';
 import { PageComponent } from './page/page.component';
-
-
+import { AuthInterceptorService } from './auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +41,16 @@ import { PageComponent } from './page/page.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [HttpLoginService, AllHttpService, GlobalService],
+  providers: [HttpLoginService, AllHttpService, GlobalService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+

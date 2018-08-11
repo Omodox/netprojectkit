@@ -3,7 +3,8 @@
     <h1>{{globalServise.modal?.create}}</h1>
     <form (ngSubmit)="send(modalForm); " #modalForm="ngForm">
         <div class="modal_input" *ngFor="let fild of filds">
-            <input type="text" placeholder="{{fild.name}}" name="{{fild.name}}" [ngModel]="fild?.value" [readonly]="fild?.fixed" >
+            <div class="lable">{{fild.name}}</div>
+            <input type="text" placeholder="{{fild.name}}" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}" [ngModel]="fild?.value" [readonly]="fild?.fixed" >
         </div>
 
 

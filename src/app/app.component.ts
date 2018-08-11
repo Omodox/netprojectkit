@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GlobalService } from './global.service';
+import { AllHttpService } from './all-http.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+
+  constructor(
+    private allHttpServise: AllHttpService,
+    public globalServise: GlobalService
+  ) { }
+
 }

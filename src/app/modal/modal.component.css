@@ -32,10 +32,16 @@
 }
 
 .modal_input input {
-    width: 96%;
+    width: 500px;
+    display: inline-block;
     padding: 4px;
     height: 24px;
     margin: auto;
 
 
+}
+
+.lable {
+    display: inline-block;
+    width: 110px;
 }

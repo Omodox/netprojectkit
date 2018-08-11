@@ -1,4 +1,7 @@
 
+
+<button (click)="globalServise.modal = {create:'page', shablon: shablonId}">Создать Страницу</button>
+<hr>
 <div class="container">
   <div class="fex_table">
     <div class="div">
@@ -12,7 +15,7 @@
     <div class="div">{{page.name}}</div>
 
     <div class="div" *ngFor="let fild of filds; let id = index;">
-      <span>{{page.vals[id]?.val}}</span>
+      <span *ngIf="page.vals">{{ page.vals[id]?.val}}</span>
     </div>
 
 

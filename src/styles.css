@@ -14,14 +14,20 @@
     flex-direction: row;
     justify-content: space-between;
     flex: 1 100%;
+    background: #d2ddde;
 }
 
 .div {
     padding: 8px;
     border: 1px solid #777;
+    border-bottom: 0px;
     width: 100%;
-    background: #fff;
+    
  
+}
+
+.fex_table:nth-child(2n) {
+    background: #eee;
 }
 
 body {
