@@ -22,6 +22,7 @@ import { ModalComponent } from './modal/modal.component';
 import { GlobalService } from './global.service';
 import { PageComponent } from './page/page.component';
 import { AuthInterceptorService } from './auth-interceptor.service';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthInterceptorService } from './auth-interceptor.service';
     ShablonComponent,
     ShablonsComponent,
     ModalComponent,
-    PageComponent
+    PageComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

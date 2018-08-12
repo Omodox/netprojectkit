@@ -14,7 +14,7 @@
           <div class="div"><a routerLink="/shablon/{{shablon.id}}">{{shablon.name}}</a></div>
           <div class="div">
               <div *ngFor="let fild of shablon.filds;">
-                  {{fild.name}}
+                  {{fild.name}} [{{fild.type}}]
               </div>
           </div>
           <div class="div">

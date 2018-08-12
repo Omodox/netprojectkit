@@ -45,3 +45,15 @@
     display: inline-block;
     width: 110px;
 }
+
+.modal_footer {
+    position: absolute;
+    bottom: 10px;
+    float: right;
+
+
+}
+
+button {
+    cursor: pointer;
+}

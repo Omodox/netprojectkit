@@ -6,6 +6,7 @@ import { SitesComponent } from './sites/sites.component';
 import { ShablonComponent } from './shablon/shablon.component';
 import { ShablonsComponent } from './shablons/shablons.component';
 import { PageComponent } from './page/page.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'sites', component: SitesComponent},
   { path: 'shablon/:id', component: ShablonComponent},
   { path: 'shablons/:id', component: ShablonsComponent},
+  { path: 'users', component: UsersComponent},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

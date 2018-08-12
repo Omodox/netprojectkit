@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { HttpLoginService } from './http-login.service';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'app-login',
@@ -15,16 +16,26 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     private httpLoginService: HttpLoginService,
-  ) {}
+    public globalServise: GlobalService
+  ) { }
 
   ngOnInit() {
   }
 
   login(req) {
     console.log(req.value);
-    this.router.navigate(['/sites']);
-this.httpLoginService.getProfile().subscribe(res => { console.log(res);
-});
+    this.httpLoginService.getProfile(req.value).subscribe(res => {
+      console.log(res);
+      this.globalServise.myName = res['name'];
+      this.globalServise.myStatus = res['status'];
+      localStorage.setItem('token', res['token']);
+      localStorage.setItem('sts', res['status']);
+      localStorage.setItem('name', res['name']);
+      if (res['token']) {
+        this.router.navigate(['/sites']);
+      }
+
+    });
   }
 
 }

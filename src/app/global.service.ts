@@ -6,5 +6,7 @@ export class GlobalService {
   constructor() { }
 
   modal;
+  myName;
+  myStatus;
 
 }

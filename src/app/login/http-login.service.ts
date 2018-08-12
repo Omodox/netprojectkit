@@ -13,8 +13,8 @@ export class HttpLoginService {
     private http: HttpClient,
   ) { }
 
-  getProfile() {
-       return this.http.get(`${this.server}?set=pages`);
+  getProfile(body) {
+       return this.http.get(`${this.server}?set=login&email=${body.email}&password=${body.password}`);
   }
 
 }
