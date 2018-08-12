@@ -6,15 +6,19 @@
     <div class="fex_table">
       <div class="div">Id</div>
       <div class="div">Name</div>
+      <div class="div">Count</div>
       <div class="div">Filds</div>
       <div class="div">Actions</div>
     </div>
       <div *ngFor="let shablon of shablons; let id = index;" class="fex_table">
           <div class="div">{{shablon.id}}</div>
           <div class="div"><a routerLink="/shablon/{{shablon.id}}">{{shablon.name}}</a></div>
+          <div class="div">{{shablon.pageCount}}</div>
           <div class="div">
               <div *ngFor="let fild of shablon.filds;">
-                  {{fild.name}} [{{fild.type}}]
+                  <div class="btn_in_table" (click)="globalServise.modal = {edit:'fild', fildId: fild.id}">
+                        {{fild.name}} [{{fild.type}}]
+                  </div>
               </div>
           </div>
           <div class="div">

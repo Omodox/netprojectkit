@@ -15,6 +15,16 @@
     justify-content: space-between;
     flex: 1 100%;
     background: #d2ddde;
+    transition: 0.2s;
+}
+
+.fex_table:nth-child(2n) {
+    background: #eee;
+}
+
+.fex_table:hover {
+    /* background: #dcecc6; */
+    transition: 0.2s;
 }
 
 .div {
@@ -22,13 +32,21 @@
     border: 1px solid #777;
     border-bottom: 0px;
     width: 100%;
-    
- 
+    text-align: left;
 }
 
-.fex_table:nth-child(2n) {
-    background: #eee;
+.div:first-child {
+   width: 100px;
 }
+
+.btn_in_table {
+    cursor: pointer;
+    font-weight: 600;
+    color: #2b2ed6;
+    padding: 5px 0px;
+}
+
+
 
 body {
     background: #eee;

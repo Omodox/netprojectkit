@@ -50,6 +50,10 @@ export class AllHttpService {
        return this.http.post(`${this.server}?set=page&action=create`, body);
   }
 
+  statusPage(body) {
+       return this.http.get(`${this.server}?set=page&action=status&id=${body.id}&sts=${body.sts}`);
+  }
+
 
 
 

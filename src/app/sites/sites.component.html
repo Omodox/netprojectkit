@@ -1,5 +1,19 @@
 <button (click)="globalServise.modal = {create:'site'}">Create</button>
+<div class="container">
+  <div class="fex_table">
+    <div class="div">
+      Name
+    </div>
+    <div class="div">Date</div>
+  </div>
 
-<div *ngFor="let site of sites; let id = index;">
-  <a routerLink="/shablons/{{site.id}}">{{site.name}}</a>
+
+  <div class="fex_table" *ngFor="let site of sites; let id = index;">
+    <div class="div">
+      <a routerLink="/shablons/{{site.id}}">{{site.name}}</a>
+    </div>
+    <div class="div">
+      {{site.created_date}}
+    </div>
+  </div>
 </div>

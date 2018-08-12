@@ -38,4 +38,16 @@ export class ShablonComponent implements OnInit {
     });
 
   }
+
+  changeStatus(page) {
+    console.log(page);
+    if (page.sts === 1 || page.sts === '1') {
+      page.sts = 2;
+    } else if (page.sts === 2 || page.sts === '2') {
+      page.sts = 1;
+    }
+    this.allHttpServise.statusPage({ sts: page.sts, id: page.id }).subscribe(res => {
+      console.log('Server: ', res);
+    });
+  }
 }

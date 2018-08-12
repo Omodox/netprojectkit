@@ -1,0 +1,17 @@
+.div:nth-child(2) {
+    width: 180px;
+    text-align: center; 
+}
+
+.pageStatus {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50px;
+    background: #d83535;
+    cursor: pointer;
+}
+
+.pageStatusActive {
+    background: #00a041;
+}

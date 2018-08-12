@@ -1,19 +1,29 @@
+<button (click)="globalServise.modal = {create:'page', shablon: shablonId}">
 
-
-<button (click)="globalServise.modal = {create:'page', shablon: shablonId}">Создать Страницу</button>
+  Создать Страницу</button>
 <hr>
 <div class="container">
   <div class="fex_table">
     <div class="div">
-      <span>page</span>
+      <span>Id</span>
+    </div>
+    <div class="div">
+      <span>Status</span>
+    </div>
+    <div class="div">
+      <span>Page</span>
     </div>
     <div class="div" *ngFor="let fild of filds; let id = index;">
       <span>{{fild.name}}</span>
     </div>
   </div>
-  <div *ngFor="let page of pages; let id = index;" class="fex_table">
-    <div class="div">{{page.name}}</div>
 
+  <div *ngFor="let page of pages; let id = index;" class="fex_table">
+    <div class="div">{{page.id}}</div>
+    <div class="div">
+      <div class="pageStatus" [ngClass]="{
+      'pageStatusActive':page.sts == 2}" (click)="changeStatus(page)"></div></div>
+    <div class="div">{{page.name}}</div>
     <div class="div" *ngFor="let fild of filds; let id = index;">
       <span *ngIf="page.vals">{{ page.vals[id]?.val}}</span>
     </div>
