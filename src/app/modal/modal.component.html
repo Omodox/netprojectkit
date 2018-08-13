@@ -4,7 +4,9 @@
     <form (ngSubmit)="send(modalForm); " #modalForm="ngForm">
         <div class="modal_input" *ngFor="let fild of filds">
             <div class="lable">{{fild.name}}</div>
-            <input type="text" placeholder="{{fild.name}}" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}" [ngModel]="fild?.value" [readonly]="fild?.fixed" >
+            <input *ngIf="fild.type !== 'text'" type="text" placeholder="{{fild.name}}" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}" [ngModel]="fild?.value" [readonly]="fild?.fixed" >
+          <textarea *ngIf="fild.type == 'text'" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}" [ngModel]="fild?.value"></textarea>
+            <div class="edit_btn" *ngIf="fild.type == 'text'" (click) = "globalServise.textEditor.show = true; globalServise.textEditor.text = 'text' " >Open Editor</div>
         </div>
 
 

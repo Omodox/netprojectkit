@@ -91,7 +91,7 @@ export class ModalComponent implements OnInit {
         newFilds = res;
         newFilds.forEach(element => {
           // console.log(element);
-          this.filds.push({name : element.name, fildId : element.id , value: element.placeholder});
+          this.filds.push({name : element.name, fildId : element.id , value: element.placeholder, type : element.type});
         });
         console.log(this.filds);
       });

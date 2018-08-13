@@ -23,6 +23,7 @@ import { GlobalService } from './global.service';
 import { PageComponent } from './page/page.component';
 import { AuthInterceptorService } from './auth-interceptor.service';
 import { UsersComponent } from './users/users.component';
+import { TextEditorComponent } from './text-editor/text-editor.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { UsersComponent } from './users/users.component';
     ShablonsComponent,
     ModalComponent,
     PageComponent,
-    UsersComponent
+    UsersComponent,
+    TextEditorComponent
   ],
   imports: [
     BrowserModule,

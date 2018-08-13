@@ -6,6 +6,11 @@ export class GlobalService {
   constructor() { }
 
   modal;
+  textEditor = {
+    show : false,
+    text : '',
+  };
+
   myName;
   myStatus;
 

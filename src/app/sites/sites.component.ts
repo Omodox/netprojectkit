@@ -21,6 +21,9 @@ export class SitesComponent implements OnInit {
     this.allHttpServise.getSites().subscribe(res => {
       console.log(res); this.sites = res;
     });
+
   }
+
+
 
 }
