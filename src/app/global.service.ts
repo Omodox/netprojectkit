@@ -8,7 +8,9 @@ export class GlobalService {
   modal;
   textEditor = {
     show : false,
-    text : '',
+    text : [],
+    form : '',
+    key : '',
   };
 
   myName;

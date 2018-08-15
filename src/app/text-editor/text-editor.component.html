@@ -1,8 +1,8 @@
 <div class="modal">
-  <div class="txtEditor" contenteditable>{{globalServise.textEditor.text}}</div>
+  <div class="txtEditor" [innerHTML]="text" #textForm contenteditable></div>
 
   <div class="modal_footer">
-      <button (click)="globalServise.textEditor.show = false">OK</button>
+      <button (click)="sendText(textForm);">OK</button>
   </div>
 
 </div>

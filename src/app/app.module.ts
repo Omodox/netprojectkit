@@ -24,6 +24,7 @@ import { PageComponent } from './page/page.component';
 import { AuthInterceptorService } from './auth-interceptor.service';
 import { UsersComponent } from './users/users.component';
 import { TextEditorComponent } from './text-editor/text-editor.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TextEditorComponent } from './text-editor/text-editor.component';
     ModalComponent,
     PageComponent,
     UsersComponent,
-    TextEditorComponent
+    TextEditorComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,

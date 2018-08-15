@@ -2,11 +2,11 @@
 
     <h1>{{globalServise.modal?.create}}</h1>
     <form (ngSubmit)="send(modalForm); " #modalForm="ngForm">
-        <div class="modal_input" *ngFor="let fild of filds">
+        <div class="modal_input" *ngFor="let fild of filds; let input_id = index">
             <div class="lable">{{fild.name}}</div>
             <input *ngIf="fild.type !== 'text'" type="text" placeholder="{{fild.name}}" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}" [ngModel]="fild?.value" [readonly]="fild?.fixed" >
-          <textarea *ngIf="fild.type == 'text'" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}" [ngModel]="fild?.value"></textarea>
-            <div class="edit_btn" *ngIf="fild.type == 'text'" (click) = "globalServise.textEditor.show = true; globalServise.textEditor.text = 'text' " >Open Editor</div>
+          <textarea class="hide_textarea" *ngIf="fild.type == 'text'" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}" [(ngModel)]="globalServise.textEditor.text[fild.fildId]"></textarea>
+            <div class="edit_btn" *ngIf="fild.type == 'text'" (click) = "globalServise.textEditor.show = true; globalServise.textEditor.key = fild.fildId ">Open Editor</div>
         </div>
 
 

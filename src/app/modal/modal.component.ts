@@ -53,6 +53,7 @@ export class ModalComponent implements OnInit {
   }
 
 
+
   ngOnInit() {
 
     if (this.globalServise.modal.create === 'site') {
@@ -72,7 +73,7 @@ export class ModalComponent implements OnInit {
     if (this.globalServise.modal.create === 'fild') {
       this.filds = [
         { name: 'shablon', value: this.globalServise.modal.shablon, fixed: true },
-        { name: 'name',  },
+        { name: 'name', },
         { name: 'type', value: 'string' },
         { name: 'placeholder' },
         { name: 'parent', value: 0, }
@@ -91,7 +92,7 @@ export class ModalComponent implements OnInit {
         newFilds = res;
         newFilds.forEach(element => {
           // console.log(element);
-          this.filds.push({name : element.name, fildId : element.id , value: element.placeholder, type : element.type});
+          this.filds.push({ name: element.name, fildId: element.id, value: element.placeholder, type: element.type });
         });
         console.log(this.filds);
       });

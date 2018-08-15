@@ -15,7 +15,20 @@ export class TextEditorComponent implements OnInit {
   ) { }
 
 
+  text;
+
+
   ngOnInit() {
+    console.log(this.globalServise.textEditor);
+
+  this.text = this.globalServise.textEditor.text[this.globalServise.textEditor.key];
+
   }
+  sendText(textForm) {
+    this.globalServise.textEditor.show = false;
+    this.globalServise.textEditor.text[this.globalServise.textEditor.key] = textForm.innerHTML;
+    console.log(this.globalServise.textEditor);
+  }
+
 
 }
