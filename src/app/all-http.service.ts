@@ -67,6 +67,10 @@ export class AllHttpService {
        return this.http.get(`${this.server}?set=page&action=status&id=${body.id}&sts=${body.sts}`);
   }
 
+  deletePage(body) {
+       return this.http.get(`${this.server}?set=page&action=status&id=${body.id}&sts=0`);
+  }
+
 
 
 

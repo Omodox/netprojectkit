@@ -30,6 +30,11 @@ export class ShablonComponent implements OnInit {
       console.log(this.shablonId);
     });
 
+    this.getAllfromServer();
+
+  }
+
+  getAllfromServer() {
     this.allHttpServise.getShablon(this.shablonId).subscribe(res => {
       console.log(res);
       this.shablon = res;
@@ -52,6 +57,13 @@ export class ShablonComponent implements OnInit {
     });
   }
 
+  delete(page) {
+    this.allHttpServise.deletePage({ id: page.id }).subscribe(res => {
+      console.log('Server: ', res);
+      this.getAllfromServer();
+    });
+  }
+
   fildValue(fild, vals) {
     if (fild.type === 'seltct') {
       console.log('select');
@@ -67,19 +79,19 @@ export class ShablonComponent implements OnInit {
     // console.log(item.innerText);
     // console.log(res.id);
     if (item.innerText !== this.valbuffer) {
-    this.allHttpServise.updateVal({ val: item.innerText }, res.id).subscribe( result => {
-      console.log('Server: ', result);
-    });
+      this.allHttpServise.updateVal({ val: item.innerText }, res.id).subscribe(result => {
+        console.log('Server: ', result);
+      });
     }
   }
 
-   updatePageFild(item, pageId, fild) {
+  updatePageFild(item, pageId, fild) {
     console.log(item.innerText);
     console.log(pageId);
     if (item.innerText !== this.valbuffer) {
-    this.allHttpServise.updatePageVal({ val: item.innerText, fild : fild }, pageId).subscribe( result => {
-      console.log('Server: ', result);
-    });
+      this.allHttpServise.updatePageVal({ val: item.innerText, fild: fild }, pageId).subscribe(result => {
+        console.log('Server: ', result);
+      });
     }
   }
 
