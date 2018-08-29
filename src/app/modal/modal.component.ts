@@ -84,6 +84,8 @@ export class ModalComponent implements OnInit {
     if (this.globalServise.modal.create === 'page') {
       this.filds = [
         { name: 'shablon', value: this.globalServise.modal.shablon, fixed: true },
+        { name: 'name', },
+        { name: 'url', },
         { name: 'parent', value: 0, }
       ];
       this.allHttpServise.getFilds(this.globalServise.modal.shablon).subscribe(res => {

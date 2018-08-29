@@ -4,20 +4,20 @@
     <form (ngSubmit)="send(modalForm); " #modalForm="ngForm">
         <div class="modal_input" *ngFor="let fild of filds; let input_id = index">
             <div class="lable">{{fild.name}}</div>
-            <input *ngIf="fild.type === 'string'" type="text" placeholder="{{fild.name}}" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}" [ngModel]="fild?.value" [readonly]="fild?.fixed" >
-          <textarea class="hide_textarea" *ngIf="fild.type == 'text'" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}" [(ngModel)]="globalServise.textEditor.text[fild.fildId]"></textarea>
-            <div class="edit_btn" *ngIf="fild.type == 'text'" (click) = "globalServise.textEditor.show = true; globalServise.textEditor.key = fild.fildId ">Open Editor</div>
-            <select [ngModel]="fild?.value" *ngIf="fild.type == 'select'"  name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}">
+            <input *ngIf="fild.type != 'text' &&  fild.type != 'select'   " type="text" placeholder="{{fild.name}}" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}"
+                [ngModel]="fild?.value" [readonly]="fild?.fixed">
+            <textarea class="hide_textarea" *ngIf="fild.type == 'text'" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}" [(ngModel)]="globalServise.textEditor.text[fild.fildId]"></textarea>
+            <div class="edit_btn" *ngIf="fild.type == 'text'" (click)="globalServise.textEditor.show = true; globalServise.textEditor.key = fild.fildId ">Open Editor</div>
+            <select [ngModel]="fild?.value" *ngIf="fild.type == 'select'" name="{{fild.fildId ? 'fild_'+fild.fildId : fild.name}}">
                 <option *ngFor="let child of fild.list" value="{{child.id}}">{{child.name}}</option>
-               </select>
+            </select>
         </div>
 
 
-        <input type="submit">
+        <div class="modal_footer">
+            <input type="submit">
+        </div>
     </form>
-
-    <div class="modal_footer">
-        <button (click)="globalServise.modal = false">Close</button>
-    </div>
+    <button class="close_btn" (click)="globalServise.modal = false">Close</button>
 </div>
 <div class="shadow"></div>

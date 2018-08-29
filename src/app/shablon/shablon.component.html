@@ -3,28 +3,27 @@
   Создать Страницу</button>
 <hr>
 <div class="container">
-  <div class="fex_table">
-    <div class="div">
-      <span>Id</span>
-    </div>
-    <div class="div">
-      <span>Status</span>
-    </div>
-    <div class="div" *ngFor="let fild of filds; let id = index;">
-      <span>{{fild.name}}</span>
-    </div>
-  </div>
+  <table class="main_table">
+    <tr>
+      <td><span>Status</span></td>
+      <td><span>ID</span></td>
+      <td><span>Name</span></td>
+      <td><span>Edit</span></td>
+      <td *ngFor="let fild of filds; let id = index;"><span>{{fild.name}}</span></td>
+      <td><span>Delete</span></td>
+    </tr>
+    <tr *ngFor="let page of pages; let id = index;">
+        <td><span> <div class="pageStatus" [ngClass]="{
+          'pageStatusActive':page.sts == 2}" (click)="changeStatus(page)"></div></span></td>
+        <td><span>{{page.id}}</span></td>
+        <td><span>{{page.name}}</span></td>
+        <td><button>Edit</button></td>
+        <td  *ngFor="let fild of filds; let id = index;">
+            <span class="contenteditable" #filditem (focusout)="updateFild(filditem, fild, page.vals)" contenteditable="true"> {{ fildValue(fild,page.vals) }} </span>
+        </td>
+        <td><button>Delete</button></td>
+    </tr>
 
-  <div *ngFor="let page of pages; let id = index;" class="fex_table">
-    <div class="div">{{page.id}}</div>
-    <div class="div">
-      <div class="pageStatus" [ngClass]="{
-      'pageStatusActive':page.sts == 2}" (click)="changeStatus(page)"></div></div>
-    <div class="div" *ngFor="let fild of filds; let id = index;">
-      <span *ngIf="page.vals">{{ page.vals[id]?.val}}</span>
-    </div>
+  </table>
 
-
-
-  </div>
 </div>

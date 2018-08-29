@@ -50,4 +50,20 @@ export class ShablonComponent implements OnInit {
       console.log('Server: ', res);
     });
   }
+
+  fildValue(fild, vals) {
+    if (fild.type === 'seltct') {
+      console.log('select');
+    }
+    const res = vals.find(x => x.fild === fild.id);
+    if (res) { return res.val; } else {
+      return '--';
+    }
+  }
+
+  updateFild(item, fild, vals) {
+    const res = vals.find(x => x.fild === fild.id);
+    console.log(item.innerText);
+    console.log(res.id);
+  }
 }
