@@ -35,6 +35,11 @@ export class AllHttpService {
        return this.http.get(`${this.server}?set=filds&id=${id}`);
   }
 
+  getPagesPerShablon(id) {
+       return this.http.get(`${this.server}?set=pages&order=shablon&id=${id}`);
+  }
+
+
   createSite(body) {
        return this.http.post(`${this.server}?set=site&action=create`, body);
   }

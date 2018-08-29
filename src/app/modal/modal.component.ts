@@ -16,6 +16,7 @@ export class ModalComponent implements OnInit {
     public globalServise: GlobalService
   ) { }
 
+
   send(modalForm) {
     console.log('firt step : ', modalForm.value, 'Create command: ', this.globalServise.modal.create);
     if (this.globalServise.modal.create) {
@@ -83,8 +84,6 @@ export class ModalComponent implements OnInit {
     if (this.globalServise.modal.create === 'page') {
       this.filds = [
         { name: 'shablon', value: this.globalServise.modal.shablon, fixed: true },
-        { name: 'name' },
-        { name: 'url' },
         { name: 'parent', value: 0, }
       ];
       this.allHttpServise.getFilds(this.globalServise.modal.shablon).subscribe(res => {
@@ -92,7 +91,16 @@ export class ModalComponent implements OnInit {
         newFilds = res;
         newFilds.forEach(element => {
           // console.log(element);
-          this.filds.push({ name: element.name, fildId: element.id, value: element.placeholder, type: element.type });
+          if (element.type === 'select') {
+            this.allHttpServise.getPagesPerShablon(element.parent).subscribe(res2 => {
+              console.log(res2);
+              element.list = res2;
+              // tslint:disable-next-line:max-line-length
+              this.filds.push({ name: element.name, fildId: element.id, value: element.placeholder, type: element.type, list : element.list });
+            });
+          } else {
+          this.filds.push({ name: element.name, fildId: element.id, value: element.placeholder, type: element.type, list : element.list });
+          }
         });
         console.log(this.filds);
       });
