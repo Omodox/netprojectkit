@@ -16,7 +16,7 @@
         <td><span> <div class="pageStatus" [ngClass]="{
           'pageStatusActive':page.sts == 2}" (click)="changeStatus(page)"></div></span></td>
         <td><span>{{page.id}}</span></td>
-        <td><span>{{page.name}}</span></td>
+        <td><span class="contenteditable" #filditem (focusout)="updatePageFild(filditem, page.id, 'name')" (focus)="valbuffer = filditem.innerText " contenteditable="true">{{page.name}}</span></td>
         <td><button>Edit</button></td>
         <td  *ngFor="let fild of filds; let id = index;">
             <span class="contenteditable" #filditem (focusout)="updateFild(filditem, fild, page.vals)" (focus)="valbuffer = filditem.innerText " contenteditable="true"> {{ fildValue(fild,page.vals) }} </span>

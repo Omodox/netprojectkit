@@ -72,4 +72,15 @@ export class ShablonComponent implements OnInit {
     });
     }
   }
+
+   updatePageFild(item, pageId, fild) {
+    console.log(item.innerText);
+    console.log(pageId);
+    if (item.innerText !== this.valbuffer) {
+    this.allHttpServise.updatePageVal({ val: item.innerText, fild : fild }, pageId).subscribe( result => {
+      console.log('Server: ', result);
+    });
+    }
+  }
+
 }
