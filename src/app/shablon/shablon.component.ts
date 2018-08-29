@@ -15,6 +15,7 @@ export class ShablonComponent implements OnInit {
   shablon;
   filds;
   pages;
+  valbuffer;
 
   constructor(
     private allHttpServise: AllHttpService,
@@ -63,7 +64,12 @@ export class ShablonComponent implements OnInit {
 
   updateFild(item, fild, vals) {
     const res = vals.find(x => x.fild === fild.id);
-    console.log(item.innerText);
-    console.log(res.id);
+    // console.log(item.innerText);
+    // console.log(res.id);
+    if (item.innerText !== this.valbuffer) {
+    this.allHttpServise.updateVal({ val: item.innerText }, res.id).subscribe( result => {
+      console.log('Server: ', result);
+    });
+    }
   }
 }

@@ -40,6 +40,10 @@ export class AllHttpService {
   }
 
 
+  updateVal(body, id) {
+       return this.http.post(`${this.server}?set=val&order=update&id=${id}`, body);
+  }
+
   createSite(body) {
        return this.http.post(`${this.server}?set=site&action=create`, body);
   }
