@@ -51,13 +51,15 @@ export class ModalComponent implements OnInit {
     }
 
 
-
+    this.globalServise.modalStatus.emit('close');
     this.globalServise.modal = false;
   }
 
 
 
   ngOnInit() {
+
+    this.globalServise.modalStatus.emit('open Modal Emit');
 
     if (this.globalServise.modal.create === 'site') {
       this.filds = [

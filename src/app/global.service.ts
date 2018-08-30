@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable()
 export class GlobalService {
@@ -7,7 +6,7 @@ export class GlobalService {
   constructor() { }
 
   modal;
-  modalStatus = new EventEmitter();
+   modalStatus:  EventEmitter<any> = new EventEmitter();
   textEditor = {
     show : false,
     text : [],

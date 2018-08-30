@@ -16,6 +16,7 @@ export class ShablonComponent implements OnInit {
   filds;
   pages;
   valbuffer;
+  SubFromPlayerToRemoveAfterDesctroy;
 
   constructor(
     private allHttpServise: AllHttpService,
@@ -31,6 +32,11 @@ export class ShablonComponent implements OnInit {
     });
 
     this.getAllfromServer();
+
+    this.SubFromPlayerToRemoveAfterDesctroy = this.globalServise.modalStatus.subscribe(res => {
+      if (res === 'close') { this.getAllfromServer(); }
+    });
+
 
   }
 
@@ -95,5 +101,7 @@ export class ShablonComponent implements OnInit {
       });
     }
   }
+
+
 
 }
