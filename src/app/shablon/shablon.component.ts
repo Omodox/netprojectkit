@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { AllHttpService } from '../all-http.service';
 import { ActivatedRoute } from '@angular/router';
 import { GlobalService } from '../global.service';
@@ -33,6 +33,7 @@ export class ShablonComponent implements OnInit {
     this.getAllfromServer();
 
   }
+
 
   getAllfromServer() {
     this.allHttpServise.getShablon(this.shablonId).subscribe(res => {

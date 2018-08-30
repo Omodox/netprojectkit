@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../global.service';
 import { AllHttpService } from '../all-http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
@@ -13,7 +14,8 @@ export class ModalComponent implements OnInit {
 
   constructor(
     private allHttpServise: AllHttpService,
-    public globalServise: GlobalService
+    public globalServise: GlobalService,
+    private router: Router
   ) { }
 
 
