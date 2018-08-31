@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this.globalServise.myName) {
+      this.router.navigate(['/sites']);
+    }
   }
 
   login(req) {

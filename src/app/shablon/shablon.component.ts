@@ -52,6 +52,7 @@ export class ShablonComponent implements OnInit {
 
   }
 
+
   changeStatus(page) {
     console.log(page);
     if (page.sts === 1 || page.sts === '1') {
@@ -90,6 +91,17 @@ export class ShablonComponent implements OnInit {
         console.log('Server: ', result);
       });
     }
+  }
+
+  getOptions(item, fild, vals) {
+    const res = vals.find(x => x.fild === fild.id);
+    // console.log(res, fild.parent);
+    let array;
+    // this.allHttpServise.getPagesPerShablon(fild.parent).subscribe(res2 => {
+    //   console.log('back for server', res2);
+    //   array = res2;
+    //   // return array;
+    // });
   }
 
   updatePageFild(item, pageId, fild) {
