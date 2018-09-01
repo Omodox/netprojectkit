@@ -39,6 +39,10 @@ export class AllHttpService {
        return this.http.get(`${this.server}?set=pages&order=shablon&id=${id}`);
   }
 
+  getPagesPerId(id) {
+       return this.http.get(`${this.server}?set=pages&order=id&id=${id}`);
+  }
+
 
   updateVal(body, id) {
        return this.http.post(`${this.server}?set=val&order=update&id=${id}`, body);

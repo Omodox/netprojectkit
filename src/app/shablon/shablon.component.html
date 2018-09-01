@@ -20,12 +20,10 @@
         <td><span class="contenteditable" #filditem (focusout)="updatePageFild(filditem, page.id, 'url')" (focus)="valbuffer = filditem.innerText " contenteditable="true">{{page.url}}</span></td>
   
         <td  *ngFor="let fild of filds; let id = index;">
-            <div *ngIf="fild.type == 'select'">
-                <select #selectVal>
-                    <option *ngFor="let child of getOptions(selectVal,fild, page.vals)" value="{{child}}">{{child}}</option>
-                </select>
-            </div>
-            <span *ngif class="contenteditable" #filditem (focusout)="updateFild(filditem, fild, page.vals)" (focus)="valbuffer = filditem.innerText " contenteditable="true"> {{ fildValue(fild,page.vals) }} </span>
+           
+             <span *ngIf="fild.type == 'select'" > {{ fildValue(fild,page.vals) }} </span>
+       
+            <span *ngIf="fild.type != 'select'" class="contenteditable" #filditem (focusout)="updateFild(filditem, fild, page.vals)" (focus)="valbuffer = filditem.innerText " contenteditable="true"> {{ fildValue(fild,page.vals) }} </span>
         </td>
         <td><button (click)="delete(page)">Delete</button></td>
     </tr>
