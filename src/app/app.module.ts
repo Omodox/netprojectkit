@@ -25,6 +25,7 @@ import { AuthInterceptorService } from './auth-interceptor.service';
 import { UsersComponent } from './users/users.component';
 import { TextEditorComponent } from './text-editor/text-editor.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { AlbumComponent } from './album/album.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     PageComponent,
     UsersComponent,
     TextEditorComponent,
-    GalleryComponent
+    GalleryComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,

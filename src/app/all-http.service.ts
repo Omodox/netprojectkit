@@ -23,6 +23,10 @@ export class AllHttpService {
        return this.http.get(`${this.server}?set=pages&id=${id}`);
   }
 
+  getAlbums() {
+       return this.http.get(`${this.server}?set=album&action=get`);
+  }
+
   getShablon(id) {
        return this.http.get(`${this.server}?set=shablon&id=${id}`);
   }
@@ -54,6 +58,10 @@ export class AllHttpService {
 
   createSite(body) {
        return this.http.post(`${this.server}?set=site&action=create`, body);
+  }
+
+  createAlbum(body) {
+       return this.http.post(`${this.server}?set=album&action=create`, body);
   }
 
   createShablon(body) {

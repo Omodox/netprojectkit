@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../global.service';
+import { ActivatedRoute } from '@angular/router';
+import { AllHttpService } from '../all-http.service';
 
 @Component({
   selector: 'app-gallery',
@@ -7,7 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
-  constructor() { }
+
+  albums;
+
+  constructor(
+    private allHttpServise: AllHttpService,
+    private activateRoute: ActivatedRoute,
+    public globalServise: GlobalService
+  ) { }
+
+
 
   onFileChanged(event) {
     const file = event.target.files[0];
@@ -15,6 +27,11 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.allHttpServise.getAlbums().subscribe(res => {
+      console.log(res);
+      this.albums = res;
+    });
   }
 
 }

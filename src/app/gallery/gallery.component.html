@@ -1,2 +1,12 @@
 <input type="file" (change)="onFileChanged($event)">
 <a href="https://academind.com/learn/angular/snippets/angular-image-upload-made-easy/">Read</a>
+<hr>
+<button (click)="globalServise.modal = {create:'album'}"> Создать Альбом</button>
+<hr>
+
+
+<ul>
+    <li *ngFor="let item of albums">{{item.name}}</li>
+</ul>
+
+<div class="edit_btn"  (click)="globalServise.album.show = true; globalServise.textEditor.key = 1 ">Open Editor</div>

@@ -46,6 +46,11 @@ export class ModalComponent implements OnInit {
             console.log('create page: ', res);
           });
         } break;
+        case 'album': {
+          this.allHttpServise.createAlbum(modalForm.value).subscribe(res => {
+            console.log('create page: ', res);
+          });
+        } break;
 
       }
     }
@@ -82,6 +87,12 @@ export class ModalComponent implements OnInit {
         { name: 'type', value: 'string' },
         { name: 'placeholder' },
         { name: 'parent', value: 0, }
+      ];
+    }
+
+    if (this.globalServise.modal.create === 'album') {
+      this.filds = [
+        { name: 'name' }
       ];
     }
 

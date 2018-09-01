@@ -14,6 +14,13 @@ export class GlobalService {
     key : '',
   };
 
+  album = {
+    show : false,
+    text : [],
+    form : '',
+    key : '',
+  };
+
   myName;
   myStatus;
 

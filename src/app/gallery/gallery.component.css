@@ -1,0 +1,7 @@
+.edit_btn {
+    cursor: pointer;
+    background: #efefef;
+    border: 1px solid #777;
+    padding: 4px;
+    display: inline-block;
+}

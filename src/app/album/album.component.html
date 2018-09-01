@@ -1,0 +1,16 @@
+<div class="modal">
+  <input 
+  style="display: none" 
+  type="file" (change)="onFileChanged($event)" 
+  #fileInput>
+<button (click)="fileInput.click()">Select File</button>
+<button (click)="onUpload()">Upload!</button>
+
+<hr>
+
+  <div class="modal_footer">
+      <button (click)="sendText(textForm);">OK</button>
+  </div>
+
+</div>
+<div class="shadow"></div>
