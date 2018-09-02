@@ -87,8 +87,6 @@ export class AllHttpService {
 
 
 
-
-
   getSites() {
        return this.http.get(`${this.server}?set=sites`);
   }
