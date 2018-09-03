@@ -68,21 +68,3 @@ button {
     cursor: pointer;
 }
 
-.edit_btn {
-    cursor: pointer;
-    background: #efefef;
-    border: 1px solid #777;
-    padding: 4px;
-    display: inline-block;
-}
-
-
-.hide_textarea {
-    display: none;
-}
-
-.close_btn {
-    position: absolute;
-    right: 10px;
-    top:  10px;
-}

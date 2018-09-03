@@ -16,6 +16,7 @@ export class AlbumComponent implements OnInit {
 
 
   text;
+  selectedFile: File;
 
 
   ngOnInit() {
@@ -25,8 +26,19 @@ export class AlbumComponent implements OnInit {
 
   }
 
+
   onFileChanged(event) {
     const file = event.target.files[0]
+  }
+
+  onUpload() {
+    this.http.post('my-backend.com/file-upload', uploadData, {
+      reportProgress: true,
+      observe: 'events'
+    })
+      .subscribe(event => {
+        console.log(event); // handle event here
+      });
   }
 
 

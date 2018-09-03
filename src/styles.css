@@ -112,3 +112,80 @@ body {
     top: 0px;
 
 }
+
+.hide_textarea {
+    display: none;
+}
+
+.close_btn {
+    position: absolute;
+    right: 10px;
+    top:  10px;
+}
+
+.modal{
+    position: fixed;
+    top: 40px;
+    left: 0px;
+    right: 0px;
+    display: inline-block;
+    width: 740px;
+    min-height: 540px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 2px #000;
+    background: #fff;
+    color: #000;
+    margin: auto;
+    padding: 8px;
+    z-index: 2;
+}
+
+.shadow {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: hsla(0, 0%, 0%, 0.67);
+    display: block;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
+
+.modal_input {
+    width: 100%;
+    margin: 4px;
+}
+
+.modal_input input {
+    width: 500px;
+    display: inline-block;
+    padding: 4px;
+    height: 24px;
+    margin: auto;
+
+
+}
+
+.lable {
+    display: inline-block;
+    width: 110px;
+}
+
+.modal_footer {
+    position: absolute;
+    bottom: 10px;
+    float: right;
+
+
+}
+
+button {
+    cursor: pointer;
+}
+
+.txtEditor {
+    background: #eee;
+    min-height: 480px;
+    padding: 6px;
+    margin-bottom: 40px;
+}

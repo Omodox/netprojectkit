@@ -34,6 +34,13 @@
 
 </div>
 
-<div *ngIf="textEditor" class="modal_editor">
+
+<div class="modal" *ngIf="textEditor">
+  <div class="txtEditor" [innerHTML]="text" #textForm contenteditable></div>
+
+  <div class="modal_footer">
+      <button (click)="sendText(textForm);">OK</button>
+  </div>
 
 </div>
+<div class="shadow" *ngIf="textEditor"></div>
