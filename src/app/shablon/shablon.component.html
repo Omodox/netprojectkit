@@ -23,11 +23,17 @@
            
              <span *ngIf="fild.type == 'select'" > {{ fildValue(fild,page.vals) }} </span>
        
-            <span *ngIf="fild.type != 'select'" class="contenteditable" #filditem (focusout)="updateFild(filditem, fild, page.vals)" (focus)="valbuffer = filditem.innerText " contenteditable="true"> {{ fildValue(fild,page.vals) }} </span>
-        </td>
+            <span *ngIf="fild.type != 'select' && fild.type != 'code' " class="contenteditable" #filditem (focusout)="updateFild(filditem, fild, page.vals)" (focus)="valbuffer = filditem.innerText " contenteditable="true"> {{ fildValue(fild,page.vals) }} </span>
+            <div class="edit_btn" *ngIf="fild.type == 'code'" (click)="openEditor(fild, page)">Open Editor</div>
+            <!-- fildValueCode(fild,page.vals) -->
+          </td>
         <td><button (click)="delete(page)">Delete</button></td>
     </tr>
 
   </table>
+
+</div>
+
+<div *ngIf="textEditor" class="modal_editor">
 
 </div>

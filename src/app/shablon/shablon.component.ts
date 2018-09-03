@@ -17,6 +17,7 @@ export class ShablonComponent implements OnInit {
   pages;
   valbuffer;
   SubFromPlayerToRemoveAfterDesctroy;
+  textEditor ;
 
   constructor(
     private allHttpServise: AllHttpService,
@@ -82,6 +83,22 @@ export class ShablonComponent implements OnInit {
     }
   }
 
+  fildValueCode(fild, vals) {
+    if (fild.type === 'seltct') {
+      console.log('select');
+    }
+    const res = vals.find(x => x.fild === fild.id);
+    if (res) { return res.val.length; } else {
+      return '--';
+    }
+  }
+
+  openEditor(fild, page) {
+    console.log(fild, page);
+    this.textEditor = page;
+    // this.textEditor.fild = fild;
+  }
+
   updateFild(item, fild, vals) {
     const res = vals.find(x => x.fild === fild.id);
     // console.log(item.innerText);
@@ -92,6 +109,7 @@ export class ShablonComponent implements OnInit {
       });
     }
   }
+
 
   getOptions(item, fild, vals) {
     const res = vals.find(x => x.fild === fild.id);
