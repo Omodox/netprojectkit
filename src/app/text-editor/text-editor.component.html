@@ -5,9 +5,10 @@
   <div class="txtEditor" [(innerHTML)]="text" #textForm contenteditable></div>
 
   <div class="modal_footer">
-      <button (click)="sendText(textForm);">OK</button>
-      <button (click)="SaveText(textForm);">Save</button>
-  </div>
+      <button *ngIf="!this.globalServise.textEditor.toEdit" (click)="sendText(textForm);">OK</button>
+      <button *ngIf="this.globalServise.textEditor.toEdit" (click)="this.globalServise.textEditor.show = false;">Close</button>
+      <button *ngIf="this.globalServise.textEditor.toEdit" (click)="SaveText(textForm);">Save</button>
+       </div>
 
 </div>
 <div class="shadow"></div>
