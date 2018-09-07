@@ -33,12 +33,16 @@ export class TextEditorComponent implements OnInit {
     this.globalServise.textEditor.show = false;
     this.globalServise.textEditor.text[this.globalServise.textEditor.key] = textForm.innerHTML;
     console.log(this.globalServise.textEditor);
+    // this.globalServise.textEditor = null;
+    // this.globalServise.textEditor.text[this.globalServise.textEditor.key] = '';
   }
 
   SaveText(textForm) {
     console.log(this.globalServise.textEditor.key);
     this.allHttpServise.updateVal({ val: textForm.innerHTML }, this.globalServise.textEditor.key).subscribe(result => {
       console.log('Server: ', result);
+      this.globalServise.textEditor;
+      // this.globalServise.textEditor = null;
     });
   }
 
