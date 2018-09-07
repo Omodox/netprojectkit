@@ -1,8 +1,12 @@
 <div class="modal">
-  <div class="txtEditor" [innerHTML]="text" #textForm contenteditable></div>
+  <div class="modal_header">
+    <button (click)="cleanText(textForm)">Clean</button>
+  </div>
+  <div class="txtEditor" [(innerHTML)]="text" #textForm contenteditable></div>
 
   <div class="modal_footer">
       <button (click)="sendText(textForm);">OK</button>
+      <button (click)="SaveText(textForm);">Save</button>
   </div>
 
 </div>

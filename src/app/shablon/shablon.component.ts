@@ -93,15 +93,24 @@ export class ShablonComponent implements OnInit {
     }
   }
 
-   fildTextValue(fild, vals) {
-    // if (fild.type === 'seltct') {
-    //   console.log('select');
-    // }
-    // const res = vals.find(x => x.fild === fild.id);
-    // if (res) { return res.val.length; } else {
-    //   return '--';
-    // }
+   fildTextValueLenght(fild, vals) {
+
+    const res = vals.find(x => x.fild === fild.id);
+    return res.val.length;
   }
+
+  fildTextValue(fild, vals) {
+
+    const res = vals.find(x => x.fild === fild.id);
+    return res.val;
+  }
+
+  fildIdValue(fild, vals) {
+    const res = vals.find(x => x.fild === fild.id);
+    return res.id;
+  }
+
+  
 
   openEditor(fild, page) {
     console.log(fild, page);

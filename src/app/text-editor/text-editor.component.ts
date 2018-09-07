@@ -16,12 +16,17 @@ export class TextEditorComponent implements OnInit {
 
 
   text;
+  textAr;
 
 
   ngOnInit() {
     console.log(this.globalServise.textEditor);
 
-  this.text = this.globalServise.textEditor.text[this.globalServise.textEditor.key];
+    this.text = this.globalServise.textEditor.text[this.globalServise.textEditor.key];
+
+    if (this.globalServise.textEditor.toEdit) {
+      this.text = this.globalServise.textEditor.toEdit;
+    }
 
   }
   sendText(textForm) {
@@ -30,5 +35,39 @@ export class TextEditorComponent implements OnInit {
     console.log(this.globalServise.textEditor);
   }
 
+  SaveText(textForm) {
+    console.log(this.globalServise.textEditor.key);
+    this.allHttpServise.updateVal({ val: textForm.innerHTML }, this.globalServise.textEditor.key).subscribe(result => {
+      console.log('Server: ', result);
+    });
+  }
 
+cleanText(text){
+ this.text = text.innerHTML;
+  // this.text = this.text.replace(/<[^>]*>/g, '');
+  this.text = this.text.replace(/div/g, "p");
+  this.text = this.text.replace(/dir="ltr"/g, "");
+  this.text = this.text.replace(/<\/?span[^>]*>/g, "");
+  this.textAr = this.text.split('</p>');
+
+
+
+  for (let i = 0; i < this.textAr.length; i++) {
+    this.textAr[i] = this.textAr[i] + '</p>';
+
+    const lastL = this.textAr[i][this.textAr[i].length - 5];
+    console.log(lastL);
+    if (lastL !== '.' && lastL !== '?' && lastL !== '!' && lastL !== ';' && lastL !== ':' && lastL !== ' ') {
+      this.textAr[i] = this.textAr[i].replace(/p/g, "h2");
+    }
+  }
+  this.text = this.textAr.join('');
 }
+
+test(){
+console.log(this.text);
+}
+  
+  };
+
+

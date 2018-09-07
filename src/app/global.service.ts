@@ -12,6 +12,7 @@ export class GlobalService {
     text : [],
     form : '',
     key : '',
+    toEdit:  '',
   };
 
   album = {
