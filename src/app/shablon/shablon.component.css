@@ -20,3 +20,7 @@
    width:  50px;
 }
 
+.modal {
+    position: fixed;
+}
+

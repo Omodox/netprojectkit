@@ -3,6 +3,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { AllHttpService } from '../all-http.service';
 import { ActivatedRoute } from '@angular/router';
 import { GlobalService } from '../global.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-shablon',
@@ -17,7 +18,7 @@ export class ShablonComponent implements OnInit {
   pages;
   valbuffer;
   SubFromPlayerToRemoveAfterDesctroy;
-  textEditor ;
+  textEditor;
 
   constructor(
     private allHttpServise: AllHttpService,
@@ -93,7 +94,7 @@ export class ShablonComponent implements OnInit {
     }
   }
 
-   fildTextValueLenght(fild, vals) {
+  fildTextValueLenght(fild, vals) {
 
     const res = vals.find(x => x.fild === fild.id);
     return res.val.length;
@@ -110,12 +111,22 @@ export class ShablonComponent implements OnInit {
     return res.id;
   }
 
-  
 
   openEditor(fild, page) {
     console.log(fild, page);
     this.textEditor = page;
-    // this.textEditor.fild = fild;
+    this.textEditor.show = true;
+    this.textEditor.key = this.fildIdValue(fild, page.vals);
+    this.textEditor.toEdit = this.fildTextValue(fild, page.vals);
+  }
+
+  sendText(textForm) {
+    console.log(this.textEditor);
+    this.allHttpServise.updateVal({ val: textForm.innerText }, this.textEditor.key).subscribe(result => {
+      console.log('Server: ', result);
+      this.getAllfromServer();
+      this.textEditor = null;
+    });
   }
 
   updateFild(item, fild, vals) {
