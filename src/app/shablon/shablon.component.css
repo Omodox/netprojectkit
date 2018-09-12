@@ -24,3 +24,12 @@
     position: fixed;
 }
 
+.dobule_menu {
+    display: block;
+    width: 100%;
+    height: 30px;
+    position: fixed;
+    top: 40px;
+    background: #eee;
+    border-bottom: 1px solid #777;
+}

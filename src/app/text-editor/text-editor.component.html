@@ -6,7 +6,7 @@
 
   <div class="modal_footer">
       <button *ngIf="!this.globalServise.textEditor.toEdit" (click)="sendText(textForm);">OK</button>
-      <button *ngIf="this.globalServise.textEditor.toEdit" (click)="this.globalServise.textEditor.show = false;">Close</button>
+      <button *ngIf="this.globalServise.textEditor.toEdit" (click)="closeWindow();">Close</button>
       <button *ngIf="this.globalServise.textEditor.toEdit" (click)="SaveText(textForm);">Save</button>
        </div>
 

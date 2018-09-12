@@ -25,7 +25,7 @@
       </div>
       <div *ngFor="let fild of shablon.filds;">
         <div class="btn_in_table" (click)="globalServise.modal = {edit:'fild', fildId: fild.id}">
-          {{fild.name}} [{{fild.type}}]
+          {{fild.name}} [{{fild.type}}][{{fild.id}}]
         </div>
       </div>
     </div>

@@ -43,6 +43,7 @@ export class ModalComponent implements OnInit {
 
         case 'page': {
           this.allHttpServise.createPage(modalForm.value).subscribe(res => {
+            this.globalServise.textEditor.text[this.globalServise.textEditor.key] = '';
             console.log('create page: ', res);
           });
         } break;

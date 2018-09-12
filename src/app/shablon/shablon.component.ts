@@ -84,9 +84,27 @@ export class ShablonComponent implements OnInit {
     }
   }
 
+  pageName(fild, vals) {
+    const res = vals.find(x => x.fild === fild.id);
+    if (res) {
+      const item = res;
+      if (item.pageParent) {
+      return item.pageParent.name;
+      } } else {
+      return '--';
+    }
+  }
+
+  changeParent(fild, vals) {
+    const res = vals.find(x => x.fild === fild.id);
+    console.log(res);
+    this.allHttpServise.getPagesPerShablon(fild.parent).subscribe(res2 => {
+      console.log(res2);
+    });
+  }
+
   fildValueCode(fild, vals) {
     if (fild.type === 'seltct') {
-      console.log('select');
     }
     const res = vals.find(x => x.fild === fild.id);
     if (res) { return res.val.length; } else {
@@ -99,6 +117,7 @@ export class ShablonComponent implements OnInit {
     const res = vals.find(x => x.fild === fild.id);
     return res.val.length;
   }
+
 
   fildTextValue(fild, vals) {
 
@@ -129,10 +148,15 @@ export class ShablonComponent implements OnInit {
     });
   }
 
-  updateFild(item, fild, vals) {
+  updateFild(item, fild, vals, pageId) {
     const res = vals.find(x => x.fild === fild.id);
-    // console.log(item.innerText);
-    // console.log(res.id);
+
+    if (res === undefined) {
+      console.log(item.innerText, fild.id, pageId);
+      this.allHttpServise.CreateVal({ val: item.innerText, page : pageId , fild : fild.id } ).subscribe(result => {
+        console.log('Server: ', result);
+      });
+    } else
     if (item.innerText !== this.valbuffer) {
       this.allHttpServise.updateVal({ val: item.innerText }, res.id).subscribe(result => {
         console.log('Server: ', result);

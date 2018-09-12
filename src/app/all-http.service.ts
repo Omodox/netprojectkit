@@ -31,6 +31,11 @@ export class AllHttpService {
        return this.http.get(`${this.server}?set=shablon&id=${id}`);
   }
 
+  // getPageName(id) {
+  //      return this.http.get(`${this.server}?set=page&action=name&id=${id}`);
+  // }
+
+
   getShablons(id) {
        return this.http.get(`${this.server}?set=shablons&id=${id}`);
   }
@@ -50,6 +55,10 @@ export class AllHttpService {
 
   updateVal(body, id) {
        return this.http.post(`${this.server}?set=val&order=update&id=${id}`, body);
+  }
+
+  CreateVal(body) {
+       return this.http.post(`${this.server}?set=val&order=create&page=${body.page}`, body);
   }
 
   updatePageVal(body, id) {
