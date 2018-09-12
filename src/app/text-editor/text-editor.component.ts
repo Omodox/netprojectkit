@@ -41,7 +41,9 @@ export class TextEditorComponent implements OnInit {
     console.log(this.globalServise.textEditor.key);
     this.allHttpServise.updateVal({ val: textForm.innerHTML }, this.globalServise.textEditor.key).subscribe(result => {
       console.log('Server: ', result);
-      this.globalServise.textEditor = null;
+
+      this.globalServise.textEditor.toEdit = null;
+      this.globalServise.textEditor.show = false;
     });
   }
 
