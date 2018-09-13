@@ -33,3 +33,20 @@
     background: #eee;
     border-bottom: 1px solid #777;
 }
+
+.selectFild {
+    cursor: pointer;
+}
+
+.selectItem {
+    margin: 4px;
+    padding: 4px;
+    background: #eee;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.selectItem:hover {
+    background: #777;
+    transition: 0.3s;
+}

@@ -11,6 +11,10 @@ import { GlobalService } from '../global.service';
 })
 export class LoginComponent implements OnInit {
 
+  email;
+  password;
+  
+
   constructor(
     public activatedRoute: ActivatedRoute,
     private router: Router,
