@@ -22,6 +22,8 @@
 
 .modal {
     position: fixed;
+    height: 500px;
+    min-height: 500px;
 }
 
 .dobule_menu {
@@ -49,4 +51,9 @@
 .selectItem:hover {
     background: #777;
     transition: 0.3s;
+}
+
+.modal_content {
+    overflow: auto;
+    height: 430px;
 }

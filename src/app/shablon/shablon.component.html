@@ -86,12 +86,14 @@
 
 
 <div class="modal" *ngIf="selectEditor.show">
-  <div class="selectItem" *ngFor="let listItem of selectEditorArray">
-    <div (click)="updateFildSelect(listItem.id,selectEditor.fild)">{{listItem.name}}</div>
+  <div class="modal_content">
+      <div class="selectItem" *ngFor="let listItem of selectEditorArray">
+          <div (click)="updateFildSelect(listItem.id,selectEditor.fild)">{{listItem.name}}</div>
+        </div>   
   </div>
   <div class="modal_footer">
-    <button (click)="selectEditor.show = false">Close</button>
-  </div>
+      <button (click)="selectEditor.show = false">Close</button>
+    </div>   
 
 </div>
 <div class="shadow" *ngIf="selectEditor.show"></div>
