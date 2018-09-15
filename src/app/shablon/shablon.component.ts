@@ -22,7 +22,9 @@ export class ShablonComponent implements OnInit {
   selectEditor = {
     fild: '',
     show: false,
-  }
+    page: '',
+    pageFild: '',
+  };
   selectEditorArray;
 
   constructor(
@@ -100,11 +102,16 @@ export class ShablonComponent implements OnInit {
     }
   }
 
-  changeParent(fild, vals) {
+  changeParent(fild, vals, pageId) {
+    let fildId = '';
     const res = vals.find(x => x.fild === fild.id);
-    console.log(res.id);
+      if (!res) {  fildId = ''; } else {
+         fildId = res.id;
+      }
     this.selectEditor.show = true;
-    this.selectEditor.fild = res.id;
+    this.selectEditor.fild = fildId;
+    this.selectEditor.pageFild = fild.id;
+    this.selectEditor.page = pageId;
     this.allHttpServise.getPagesPerShablon(fild.parent).subscribe(res2 => {
       console.log(res2);
       this.selectEditorArray = res2;
@@ -172,14 +179,22 @@ export class ShablonComponent implements OnInit {
     }
   }
 
-  updateFildSelect(val, id) {
-    console.log(val,id);
+  updateFildSelect(val, id, pageId, pageFild) {
+    if (id === '') {
+      // console.log(val, id, pageId, pageFild);
+      this.allHttpServise.CreateVal({ val: val, page : pageId , fild : pageFild } ).subscribe(result => {
+        console.log('Server: ', result);
+        this.selectEditor.show = false;
+        this.getAllfromServer();
+      });
+    } else {
       this.allHttpServise.updateVal({ val: val }, id).subscribe(result => {
         console.log('Server: ', result);
         this.selectEditor.show = false;
         this.getAllfromServer();
       });
-    
+    }
+
   }
 
 
