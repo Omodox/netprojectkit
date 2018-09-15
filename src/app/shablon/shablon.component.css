@@ -22,6 +22,8 @@
 
 .modal {
     position: fixed;
+    height: 500px;
+    min-height: 500px;
 }
 
 .dobule_menu {
@@ -32,4 +34,26 @@
     top: 40px;
     background: #eee;
     border-bottom: 1px solid #777;
+}
+
+.selectFild {
+    cursor: pointer;
+}
+
+.selectItem {
+    margin: 4px;
+    padding: 4px;
+    background: #eee;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.selectItem:hover {
+    background: #777;
+    transition: 0.3s;
+}
+
+.modal_content {
+    overflow: auto;
+    height: 430px;
 }

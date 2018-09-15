@@ -46,7 +46,7 @@
 
       <td *ngFor="let fild of filds; let id = index;">
 
-        <span *ngIf="fild.type == 'select'" (click)="changeParent(fild,page.vals);"> {{ pageName(fild,page.vals) }} </span>
+        <span *ngIf="fild.type == 'select'"><span class="contenteditable selectFild" (click)="changeParent(fild,page.vals);"> {{ pageName(fild,page.vals) }}</span> </span>
 
         <span *ngIf="fild.type == 'text'">
           <div class="edit_btn" (click)="globalServise.textEditor.show = true; globalServise.textEditor.key = fildIdValue(fild,page.vals); globalServise.textEditor.toEdit = fildTextValue(fild,page.vals);">Open Editor</div>
@@ -83,3 +83,17 @@
 
 </div>
 <div class="shadow" *ngIf="textEditor"></div>
+
+
+<div class="modal" *ngIf="selectEditor.show">
+  <div class="modal_content">
+      <div class="selectItem" *ngFor="let listItem of selectEditorArray">
+          <div (click)="updateFildSelect(listItem.id,selectEditor.fild)">{{listItem.name}}</div>
+        </div>   
+  </div>
+  <div class="modal_footer">
+      <button (click)="selectEditor.show = false">Close</button>
+    </div>   
+
+</div>
+<div class="shadow" *ngIf="selectEditor.show"></div>

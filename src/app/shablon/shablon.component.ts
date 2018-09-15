@@ -19,6 +19,11 @@ export class ShablonComponent implements OnInit {
   valbuffer;
   SubFromPlayerToRemoveAfterDesctroy;
   textEditor;
+  selectEditor = {
+    fild: '',
+    show: false,
+  }
+  selectEditorArray;
 
   constructor(
     private allHttpServise: AllHttpService,
@@ -97,9 +102,12 @@ export class ShablonComponent implements OnInit {
 
   changeParent(fild, vals) {
     const res = vals.find(x => x.fild === fild.id);
-    console.log(res);
+    console.log(res.id);
+    this.selectEditor.show = true;
+    this.selectEditor.fild = res.id;
     this.allHttpServise.getPagesPerShablon(fild.parent).subscribe(res2 => {
       console.log(res2);
+      this.selectEditorArray = res2;
     });
   }
 
@@ -162,6 +170,16 @@ export class ShablonComponent implements OnInit {
         console.log('Server: ', result);
       });
     }
+  }
+
+  updateFildSelect(val, id) {
+    console.log(val,id);
+      this.allHttpServise.updateVal({ val: val }, id).subscribe(result => {
+        console.log('Server: ', result);
+        this.selectEditor.show = false;
+        this.getAllfromServer();
+      });
+    
   }
 
 
