@@ -72,6 +72,9 @@ export class ShablonComponent implements OnInit {
     this.allHttpServise.statusPage({ sts: page.sts, id: page.id }).subscribe(res => {
       console.log('Server: ', res);
     });
+    this.allHttpServise.createRender(page.id).subscribe(res => {
+      console.log('Server: ', res);
+    });
   }
 
   delete(page) {
@@ -82,8 +85,11 @@ export class ShablonComponent implements OnInit {
   }
 
   fildValue(fild, vals) {
-    if (fild.type === 'seltct') {
+    if (fild.type === 'select') {
       console.log('select');
+    }
+    if (vals === undefined) {
+      return '--';
     }
     const res = vals.find(x => x.fild === fild.id);
     if (res) { return res.val; } else {
@@ -92,6 +98,9 @@ export class ShablonComponent implements OnInit {
   }
 
   pageName(fild, vals) {
+    if (vals === undefined) {
+      return '--';
+    }
     const res = vals.find(x => x.fild === fild.id);
     if (res) {
       const item = res;
@@ -104,10 +113,12 @@ export class ShablonComponent implements OnInit {
 
   changeParent(fild, vals, pageId) {
     let fildId = '';
+    if (vals) {
     const res = vals.find(x => x.fild === fild.id);
-      if (!res) {  fildId = ''; } else {
-         fildId = res.id;
-      }
+    fildId = res.id;
+    } else {
+     fildId = '';
+    }
     this.selectEditor.show = true;
     this.selectEditor.fild = fildId;
     this.selectEditor.pageFild = fild.id;
@@ -164,6 +175,12 @@ export class ShablonComponent implements OnInit {
   }
 
   updateFild(item, fild, vals, pageId) {
+    if (vals === undefined) {
+      console.log(item.innerText, fild.id, pageId);
+      this.allHttpServise.CreateVal({ val: item.innerText, page : pageId , fild : fild.id } ).subscribe(result => {
+        console.log('Server: ', result);
+      });  return true;
+    }
     const res = vals.find(x => x.fild === fild.id);
 
     if (res === undefined) {

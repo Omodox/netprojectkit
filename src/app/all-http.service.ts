@@ -31,9 +31,10 @@ export class AllHttpService {
        return this.http.get(`${this.server}?set=shablon&id=${id}`);
   }
 
-  // getPageName(id) {
-  //      return this.http.get(`${this.server}?set=page&action=name&id=${id}`);
-  // }
+
+  createRender(id) {
+    return this.http.get(`${this.server}?set=render&id=${id}`);
+  }
 
 
   getShablons(id) {

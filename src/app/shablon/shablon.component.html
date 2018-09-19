@@ -53,7 +53,7 @@
         </span>
 
         <span *ngIf="fild.type == 'string'" class="contenteditable" #filditem (focusout)="updateFild(filditem, fild, page.vals, page.id)"
-          (focus)="valbuffer = filditem.innerText " contenteditable="true"> {{ fildValue(fild,page.vals) }} </span>
+          (focus)="valbuffer = filditem.innerText " contenteditable="true"> {{ fildValue(fild, page.vals) }} </span>
 
         <span *ngIf="fild.type == 'code'">
           <div class="edit_btn" (click)="openEditor(fild, page)">Open Editor</div> {{ fildTextValueLenght(fild,page.vals) }} </span>
