@@ -112,10 +112,15 @@ export class ShablonComponent implements OnInit {
   }
 
   changeParent(fild, vals, pageId) {
+    console.log(fild, vals, pageId);
     let fildId = '';
     if (vals) {
     const res = vals.find(x => x.fild === fild.id);
+    if (res) {
     fildId = res.id;
+    } else {
+      fildId = '';
+    }
     } else {
      fildId = '';
     }
