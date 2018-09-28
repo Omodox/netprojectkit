@@ -46,17 +46,21 @@
 
       <td *ngFor="let fild of filds; let id = index;">
 
-        <span *ngIf="fild.type == 'select'"><span class="contenteditable selectFild" (click)="changeParent(fild,page.vals,page.id);"> {{ pageName(fild,page.vals) }}</span> </span>
+        <span *ngIf="fild.type == 'select'"><span class="contenteditable selectFild" (click)="changeParent(fild,page.vals,page.id);">
+            {{ pageName(fild,page.vals) }}</span> </span>
 
         <span *ngIf="fild.type == 'text'">
-          <div class="edit_btn" (click)="globalServise.textEditor.show = true; globalServise.textEditor.key = fildIdValue(fild,page.vals); globalServise.textEditor.toEdit = fildTextValue(fild,page.vals);">Open Editor</div>
+          <div class="edit_btn" (click)="globalServise.textEditor.show = true; globalServise.textEditor.key = fildIdValue(fild,page.vals); globalServise.textEditor.toEdit = fildTextValue(fild,page.vals);">Open
+            Editor</div>
         </span>
 
         <span *ngIf="fild.type == 'string'" class="contenteditable" #filditem (focusout)="updateFild(filditem, fild, page.vals, page.id)"
           (focus)="valbuffer = filditem.innerText " contenteditable="true"> {{ fildValue(fild, page.vals) }} </span>
 
         <span *ngIf="fild.type == 'code'">
-          <div class="edit_btn" (click)="openEditor(fild, page)">Open Editor</div> {{ fildTextValueLenght(fild,page.vals) }} </span>
+          <div class="edit_btn" (click)="openEditor(fild, page)">Open Editor</div> {{fildTextValueLenght(fild,page.vals) }}
+          <a class="edit_btn" target="_blank" href="{{ fildValue(fild, page.vals) }}">Game</a>
+        </span>
         <!-- fildValueCode(fild,page.vals) -->
       </td>
 
@@ -87,13 +91,13 @@
 
 <div class="modal" *ngIf="selectEditor.show">
   <div class="modal_content">
-      <div class="selectItem" *ngFor="let listItem of selectEditorArray">
-          <div (click)="updateFildSelect(listItem.id,selectEditor.fild,selectEditor.page,selectEditor.pageFild)">{{listItem.name}}</div>
-        </div>   
+    <div class="selectItem" *ngFor="let listItem of selectEditorArray">
+      <div (click)="updateFildSelect(listItem.id,selectEditor.fild,selectEditor.page,selectEditor.pageFild)">{{listItem.name}}</div>
+    </div>
   </div>
   <div class="modal_footer">
-      <button (click)="selectEditor.show = false">Close</button>
-    </div>   
+    <button (click)="selectEditor.show = false">Close</button>
+  </div>
 
 </div>
 <div class="shadow" *ngIf="selectEditor.show"></div>
