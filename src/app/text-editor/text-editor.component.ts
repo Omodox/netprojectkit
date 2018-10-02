@@ -22,11 +22,8 @@ export class TextEditorComponent implements OnInit {
   ngOnInit() {
     console.log(this.globalServise.textEditor);
 
-    this.text = this.globalServise.textEditor.text[this.globalServise.textEditor.key];
+    this.globalServise.textEditor.toEdit = this.globalServise.textEditor.text[this.globalServise.textEditor.key];
 
-    if (this.globalServise.textEditor.toEdit) {
-      this.text = this.globalServise.textEditor.toEdit;
-    }
 
   }
   sendText(textForm) {
@@ -53,9 +50,9 @@ export class TextEditorComponent implements OnInit {
   }
 
   cleanText(text) {
-    this.text = text.innerHTML;
-    let textBuffer = this.text.replace(/(<([^>]+)>)/ig, "\n");
-    let arrayOfLines = textBuffer.match(/[^\r\n]+/g);
+    this.globalServise.textEditor.toEdit = text.innerHTML;
+    const textBuffer = this.globalServise.textEditor.toEdit.replace(/(<([^>]+)>)/ig, '\n');
+    const arrayOfLines = textBuffer.match(/[^\r\n]+/g);
     // console.log(arrayOfLines);
     this.textAr = arrayOfLines;
     for (let i = 0; i < this.textAr.length; i++) {
@@ -72,7 +69,7 @@ export class TextEditorComponent implements OnInit {
         this.textAr[i] = '<p>' + this.textAr[i] + '</p>';
       }
     }
-    this.text = this.textAr.join('');
+    this.globalServise.textEditor.toEdit = this.textAr.join('');
   }
 
 

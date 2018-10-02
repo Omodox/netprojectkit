@@ -2,12 +2,12 @@
   <div class="modal_header">
     <button (click)="cleanText(textForm)">Clean</button>
   </div>
-  <div class="txtEditor" [(innerHTML)]="text" #textForm contenteditable></div>
+  <div class="txtEditor" [(innerHTML)]="globalServise.textEditor.toEdit" #textForm contenteditable></div>
 
   <div class="modal_footer">
-      <button *ngIf="!this.globalServise.textEditor.toEdit" (click)="sendText(textForm);">OK</button>
-      <button *ngIf="this.globalServise.textEditor.toEdit" (click)="closeWindow();">Close</button>
-      <button *ngIf="this.globalServise.textEditor.toEdit" (click)="SaveText(textForm);">Save</button>
+      <button *ngIf="!this.globalServise.textEditor.thisEdit" (click)="sendText(textForm);">OK</button>
+      <button *ngIf="this.globalServise.textEditor.thisEdit" (click)="closeWindow();">Close</button>
+      <button *ngIf="this.globalServise.textEditor.thisEdit" (click)="SaveText(textForm);">Save</button>
        </div>
 
 </div>

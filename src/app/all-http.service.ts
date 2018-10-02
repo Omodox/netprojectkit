@@ -70,6 +70,11 @@ export class AllHttpService {
        return this.http.post(`${this.server}?set=site&action=create`, body);
   }
 
+  createVal(body) {
+       return this.http.post(`${this.server}?set=create_val`, body);
+  }
+
+
   createAlbum(body) {
        return this.http.post(`${this.server}?set=album&action=create`, body);
   }

@@ -153,12 +153,25 @@ export class ShablonComponent implements OnInit {
   fildTextValue(fild, vals) {
 
     const res = vals.find(x => x.fild === fild.id);
-    return res.val;
+    if (res) {     return res.val; }
+    return false;
   }
 
-  fildIdValue(fild, vals) {
+  fildIdValue(fild, vals, page) {
+    console.log('fildIdValue', fild, vals, page);
     const res = vals.find(x => x.fild === fild.id);
-    return res.id;
+    if (res) {    this.globalServise.textEditor.key = res.id; return res.id; } else {
+      this.allHttpServise.createVal({ pageId: page.id, fildId: fild.id }).subscribe(result => {
+        console.log(result);
+        this.globalServise.textEditor.key = result['id'];
+        if (result['val']) {
+          this.globalServise.textEditor.toEdit = result['val'];
+        }
+        return  result['id'];
+      });
+    }
+
+
   }
 
 
@@ -166,7 +179,7 @@ export class ShablonComponent implements OnInit {
     console.log(fild, page);
     this.textEditor = page;
     this.textEditor.show = true;
-    this.textEditor.key = this.fildIdValue(fild, page.vals);
+    this.textEditor.key = this.fildIdValue(fild, page.vals, page);
     this.textEditor.toEdit = this.fildTextValue(fild, page.vals);
   }
 

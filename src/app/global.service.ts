@@ -13,6 +13,7 @@ export class GlobalService {
     form : '',
     key : '',
     toEdit:  '',
+    thisEdit: '',
   };
 
   album = {
