@@ -22,7 +22,9 @@ export class TextEditorComponent implements OnInit {
   ngOnInit() {
     console.log(this.globalServise.textEditor);
 
+    if (this.globalServise.textEditor.thisEdit === false) {
     this.globalServise.textEditor.toEdit = this.globalServise.textEditor.text[this.globalServise.textEditor.key];
+    }
 
 
   }
@@ -39,14 +41,17 @@ export class TextEditorComponent implements OnInit {
     this.allHttpServise.updateVal({ val: textForm.innerHTML }, this.globalServise.textEditor.key).subscribe(result => {
       console.log('Server: ', result);
 
+      this.globalServise.textEditor.fildtoUpdate.val = textForm.innerHTML;
       this.globalServise.textEditor.toEdit = null;
       this.globalServise.textEditor.show = false;
+      this.globalServise.textEditor.thisEdit = false;
     });
   }
 
   closeWindow() {
     this.globalServise.textEditor.toEdit = null;
     this.globalServise.textEditor.show = false;
+    this.globalServise.textEditor.thisEdit = false;
   }
 
   cleanText(text) {

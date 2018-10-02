@@ -58,7 +58,7 @@ export class AllHttpService {
        return this.http.post(`${this.server}?set=val&order=update&id=${id}`, body);
   }
 
-  CreateVal(body) {
+  CreateValString(body) {
        return this.http.post(`${this.server}?set=val&order=create&page=${body.page}`, body);
   }
 

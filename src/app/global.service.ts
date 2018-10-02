@@ -13,7 +13,8 @@ export class GlobalService {
     form : '',
     key : '',
     toEdit:  '',
-    thisEdit: '',
+    thisEdit: false,
+   fildtoUpdate: <any>'',
   };
 
   album = {

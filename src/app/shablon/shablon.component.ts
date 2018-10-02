@@ -158,11 +158,15 @@ export class ShablonComponent implements OnInit {
   }
 
   fildIdValue(fild, vals, page) {
-    console.log('fildIdValue', fild, vals, page);
+    // console.log('fildIdValue', fild, vals, page);
     const res = vals.find(x => x.fild === fild.id);
-    if (res) {    this.globalServise.textEditor.key = res.id; return res.id; } else {
+    if (res) {
+       this.globalServise.textEditor.key = res.id;
+       this.globalServise.textEditor.fildtoUpdate = res;
+      this.globalServise.textEditor.toEdit = this.fildTextValue(fild, page.vals);
+       return res.id; } else {
       this.allHttpServise.createVal({ pageId: page.id, fildId: fild.id }).subscribe(result => {
-        console.log(result);
+        // console.log(result);
         this.globalServise.textEditor.key = result['id'];
         if (result['val']) {
           this.globalServise.textEditor.toEdit = result['val'];
@@ -195,7 +199,7 @@ export class ShablonComponent implements OnInit {
   updateFild(item, fild, vals, pageId) {
     if (vals === undefined) {
       console.log(item.innerText, fild.id, pageId);
-      this.allHttpServise.CreateVal({ val: item.innerText, page : pageId , fild : fild.id } ).subscribe(result => {
+      this.allHttpServise.CreateValString({ val: item.innerText, page : pageId , fild : fild.id } ).subscribe(result => {
         console.log('Server: ', result);
       });  return true;
     }
@@ -203,12 +207,12 @@ export class ShablonComponent implements OnInit {
 
     if (res === undefined) {
       console.log(item.innerText, fild.id, pageId);
-      this.allHttpServise.CreateVal({ val: item.innerText, page : pageId , fild : fild.id } ).subscribe(result => {
+      this.allHttpServise.CreateValString({ val: item.innerText, page : pageId , fild : fild.id } ).subscribe(result => {
         console.log('Server: ', result);
       });
     } else
     if (item.innerText !== this.valbuffer) {
-      this.allHttpServise.updateVal({ val: item.innerText }, res.id).subscribe(result => {
+      this.allHttpServise.updateVal({ val: item.innerText, pageid : pageId, fildId : fild.id }, res.id).subscribe(result => {
         console.log('Server: ', result);
       });
     }
@@ -217,13 +221,13 @@ export class ShablonComponent implements OnInit {
   updateFildSelect(val, id, pageId, pageFild) {
     if (id === '') {
       // console.log(val, id, pageId, pageFild);
-      this.allHttpServise.CreateVal({ val: val, page : pageId , fild : pageFild } ).subscribe(result => {
+      this.allHttpServise.CreateValString({ val: val, page : pageId , fild : pageFild } ).subscribe(result => {
         console.log('Server: ', result);
         this.selectEditor.show = false;
         this.getAllfromServer();
       });
     } else {
-      this.allHttpServise.updateVal({ val: val }, id).subscribe(result => {
+      this.allHttpServise.updateVal({ val: val}, id).subscribe(result => {
         console.log('Server: ', result);
         this.selectEditor.show = false;
         this.getAllfromServer();

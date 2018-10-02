@@ -50,7 +50,7 @@
             {{ pageName(fild,page.vals) }}</span> </span>
 
         <span *ngIf="fild.type == 'text'">
-          <div class="edit_btn" (click)="globalServise.textEditor.show = true; globalServise.textEditor.thisEdit = true; fildIdValue(fild,page.vals,page); globalServise.textEditor.toEdit = fildTextValue(fild,page.vals);">Open Editor</div>
+          <div class="edit_btn" (click)="globalServise.textEditor.show = true; globalServise.textEditor.thisEdit = true; fildIdValue(fild,page.vals,page);">Open Editor</div>
         </span>
 
         <span *ngIf="fild.type == 'string'" class="contenteditable" #filditem (focusout)="updateFild(filditem, fild, page.vals, page.id)"
