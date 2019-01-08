@@ -5,7 +5,7 @@ import { HttpClient} from '@angular/common/http';
 @Injectable()
 export class HttpLoginService {
 
-  server = 'https://netkit.xyz/api/';
+  server = 'https://netwebkit.com/api/';
 
   constructor(
     public activatedRoute: ActivatedRoute,

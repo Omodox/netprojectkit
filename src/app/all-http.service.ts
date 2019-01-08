@@ -6,7 +6,7 @@ import { HttpClient} from '@angular/common/http';
 export class AllHttpService {
 
 
-  server = 'https://netkit.xyz/api/';
+  server = 'https://netwebkit.com/api/';
   token;
 
   constructor(

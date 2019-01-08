@@ -46,7 +46,7 @@ export class AlbumComponent implements OnInit {
       const headers = new HttpHeaders().set('Content-Type', []);
 
       // responseType 'text' is necessary for IE
-      return this.http.post('https://netkit.xyz/api/?set=load_photo', formData, {
+      return this.http.post('https://netwebkit.com/api/?set=load_photo', formData, {
           headers,
           responseType: 'text'
       }).subscribe(res => {
